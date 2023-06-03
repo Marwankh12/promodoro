@@ -607,8 +607,13 @@ if(i == 60) {
     time.innerHTML = `${min} : ${i}`
 }
 
-if(min == n) clearInterval(interve)
-
+if(min == n) {
+    let text = "your time ended"
+    let voice = new SpeechSynthesisUtterance(text)
+    speechSynthesis.speak(voice)
+    let vibration = window.navigator.vibrate(5000)
+    clearInterval(interve)
+}
 function flat() {
 let mine = min * 60
 
